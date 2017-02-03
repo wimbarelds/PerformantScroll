@@ -6,4 +6,4 @@ Also note that this is an experiment.
 
 Vue.js was used to handle the view and databinding.
 
-Example: https://cdn.rawgit.com/wimbarelds/PerformantScroll/8d19494a/index.html
+Example: https://rawgit.com/wimbarelds/PerformantScroll/master/index.html
