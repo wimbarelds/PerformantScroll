@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Test, Performant Scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="performantScroll.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Performant scroll, only render whats visible</h1>
+    <div id="list" v-on:scroll="redraw">
+        <div class="list-prepadding" v-bind:style="{height: spaceAbove}"></div>
+        <div class="__comment" v-for="comment in comments" v-bind:data-id="comment.id">
+            <h2 class="__comment__name">{{comment.name}}</h2>
+            <a v-bind:href="'mailto:' + comment.email">{{comment.email}}</a>
+            <p class="__comment__body">{{comment.body}}</p>
+        </div>
+        <div class="list-postpadding" v-bind:style="{height: spaceBelow}"></div>
+    </div>
+</body>
+</html>
