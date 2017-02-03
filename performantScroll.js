@@ -1,10 +1,10 @@
+let allData = [];
+let itemDistance = 0;
+let topOffset = 0;
+let totalHeight = 0;
+let numItemsToRender = 15;
+let numItemsOffscreen = 1;
 window.addEventListener('DOMContentLoaded', () => {
-    let allData = [];
-    let itemDistance = 0;
-    let topOffset = 0;
-    let totalHeight = 0;
-    let numItemsToRender = 15;
-    let numItemsOffscreen = 1;
     let aboveSpacer = document.querySelector('.list-prepadding');
     let belowSpacer = document.querySelector('.list-postpadding');
     let listVM = new Vue({
@@ -28,9 +28,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Set space below
-                let spaceBelow = totalHeight - ((skipNum + numItemsToRender) * itemDistance) - this.$el.clientHeight;
+                let cutOff = Math.min(allData.length, skipNum + numItemsToRender);
+                let numBelow = allData.length - cutOff;
+                let spaceBelow = numBelow * itemDistance;
                 this.spaceBelow = spaceBelow + 'px';
-                listVM.comments = allData.slice(skipNum, skipNum + numItemsToRender);
+                listVM.comments = allData.slice(skipNum, cutOff);
             }
         }
     });
