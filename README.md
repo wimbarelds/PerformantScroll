@@ -5,3 +5,5 @@ Note that this does require that all elements be the same size.
 Also note that this is an experiment.
 
 Vue.js was used to handle the view and databinding.
+
+Example: https://cdn.rawgit.com/wimbarelds/PerformantScroll/8d19494a/index.html
